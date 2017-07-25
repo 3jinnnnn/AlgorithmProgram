@@ -15,16 +15,19 @@
  */
 package me.zx.algorithm.program;
 
-import static org.junit.Assert.*;
-
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.logging.Logger;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+
+import com.google.common.collect.Lists;
 
 /**
  * 测试逆序对算法.
@@ -33,10 +36,25 @@ import org.junit.Test;
  * @since 0.0.1
  */
 public class ReversePairsTest {
-    private static final Logger LOGGER = Logger.getLogger("ReversePairsTest");
     private static final long EXPECTED_VALUE = 439694685;
     private static final long EXPECTED_USED_TIME = 10000;
+    private static Integer[] ARRAY;
     private ReversePairs1 reversePairs1;
+
+    @BeforeClass
+    public static void prepareData() {
+        try (BufferedReader br = new BufferedReader(
+                new FileReader(new File(ReversePairsTest.class.getClassLoader().getResource("15.in").getFile())))) {
+            String temp;
+            while ((temp = br.readLine()) != null) {
+                List<Integer> intList = Lists.newArrayList(temp.substring(1, temp.length() - 1).split(","))
+                        .parallelStream().map(str -> Integer.parseInt(str)).collect(Collectors.toList());
+                ARRAY = intList.toArray(new Integer[0]);
+            }
+        } catch (final Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Before
     public void before() {
@@ -46,17 +64,7 @@ public class ReversePairsTest {
     @Test
     public void test() {
         long startTime = System.currentTimeMillis();
-        int[] array = {1, 2, 3 };
-        try (FileReader reader = new FileReader(new File("/15.in"))) {
-            char[] buffer = new char[1024];
-            int charread = 0;
-            while ((charread = reader.read(buffer)) != -1) {
-                LOGGER.info(String.valueOf(buffer));
-            }
-        } catch (final Exception e) {
-            LOGGER.info(e.getMessage());
-        }
-        long actualValue = reversePairs1.reversePairs(array);
+        long actualValue = reversePairs1.reversePairs(ARRAY);
         long usedTime = System.currentTimeMillis() - startTime;
         int timeout = Long.compare(EXPECTED_USED_TIME, usedTime);
         Assert.assertEquals("算法结果错误", EXPECTED_VALUE, actualValue);

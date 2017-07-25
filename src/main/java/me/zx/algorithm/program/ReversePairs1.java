@@ -28,7 +28,7 @@ public class ReversePairs1 {
      * @param array an array
      * @return total of reverse pairs
      */
-    public long reversePairs(final int[] array) {
+    public long reversePairs(final Integer[] array) {
         long count = 0;
         int length = array.length;
         for (int i = 0; i < length; i++) {
