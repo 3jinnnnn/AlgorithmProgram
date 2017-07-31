@@ -13,33 +13,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.zx.algorithm.program;
+package me.zx.algorithm.program.method;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
- * 斐波纳契数列.
- * 查找斐波纳契数列中第 N 个数。
- * 所谓的斐波纳契数列是指：
- * 前2个数是 0 和 1 。
- * 第 i 个数是第 i-1 个数和第i-2 个数的和。
- * 斐波纳契数列的前10个数字是：
- * 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 ...
+ * 测试斐波纳契数列.
  * @author zhangxin
  * @since 0.0.1
  */
-public class Fibonacci1 {
-    /**
-     *
-     * @param n an integer
-     * @return an integer f(n)
-     */
-    public int fibonacci(final int n) {
-        if (n == 1) {
-            return 0;
-        } else if (n == 2) {
-            return 1;
-        } else {
-            return fibonacci(n - 1) + fibonacci(n - 2);
-        }
+public class FibonacciTest {
+    private Fibonacci1 fibonacci1;
+
+    @Before
+    public void before() {
+        fibonacci1 = new Fibonacci1();
     }
 
+    @Test
+    public void test() {
+        int n = 47;
+        int expected = 1836311903;
+        Assert.assertEquals("方法返回值错误", expected, fibonacci1.fibonacci(n));
+    }
+
+    @After
+    public void after() {
+        fibonacci1 = null;
+    }
 }

@@ -6,15 +6,15 @@
     <property name="checkstyle.suppressions.file" value="D:\zxsworkspace\Ord\.metadata\.plugins\org.eclipse.core.resources\.projects\AlgorithmProgram\com.basistech.m2e.code.quality.checkstyleConfigurator\checkstyle-suppressions-validate.xml"/>
     <property name="checkstyle.header.file" value="D:\zxsworkspace\Ord\.metadata\.plugins\org.eclipse.core.resources\.projects\AlgorithmProgram\com.basistech.m2e.code.quality.checkstyleConfigurator\checkstyle-header-validate.txt"/>
   </local-check-config>
-  <local-check-config name="maven-checkstyle-plugin checkstyle" location="file:/D:/eclipse-workspace/AlgorithmProgram/program/checkstyle-rules.xml" type="remote" description="maven-checkstyle-plugin configuration checkstyle">
+  <local-check-config name="maven-checkstyle-plugin checkstyle" location="file:/D:/zxsworkspace/Ord/AlgorithmProgram/checkstyle-rules.xml" type="remote" description="maven-checkstyle-plugin configuration checkstyle">
     <property name="checkstyle.cache.file" value="${project_loc}/target/checkstyle-cachefile"/>
-    <property name="checkstyle.suppressions.file" value="D:\eclipse-workspace\AlgorithmProgram\.metadata\.plugins\org.eclipse.core.resources\.projects\program\com.basistech.m2e.code.quality.checkstyleConfigurator\checkstyle-suppressions-checkstyle.xml"/>
-    <property name="checkstyle.header.file" value="D:\eclipse-workspace\AlgorithmProgram\.metadata\.plugins\org.eclipse.core.resources\.projects\program\com.basistech.m2e.code.quality.checkstyleConfigurator\checkstyle-header-checkstyle.txt"/>
+    <property name="checkstyle.suppressions.file" value="D:\zxsworkspace\Ord\.metadata\.plugins\org.eclipse.core.resources\.projects\AlgorithmProgram\com.basistech.m2e.code.quality.checkstyleConfigurator\checkstyle-suppressions-checkstyle.xml"/>
+    <property name="checkstyle.header.file" value="D:\zxsworkspace\Ord\.metadata\.plugins\org.eclipse.core.resources\.projects\AlgorithmProgram\com.basistech.m2e.code.quality.checkstyleConfigurator\checkstyle-header-checkstyle.txt"/>
   </local-check-config>
   <fileset name="java-sources-checkstyle" enabled="true" check-config-name="maven-checkstyle-plugin checkstyle" local="true">
-    <file-match-pattern match-pattern="^src/test/java/.*\.java" include-pattern="true"/>
-    <file-match-pattern match-pattern="^src/main/java/.*\.java" include-pattern="true"/>
-    <file-match-pattern match-pattern="^src/main/resources/.*\.properties" include-pattern="true"/>
-    <file-match-pattern match-pattern="^src/test/resources/.*\.properties" include-pattern="true"/>
+    <file-match-pattern match-pattern="src/test/java/.*\.java" include-pattern="true"/>
+    <file-match-pattern match-pattern="src/main/java/.*\.java" include-pattern="true"/>
+    <file-match-pattern match-pattern="src/main/resources.*\.properties" include-pattern="true"/>
+    <file-match-pattern match-pattern="src/test/resources/.*\.properties" include-pattern="true"/>
   </fileset>
 </fileset-config>
